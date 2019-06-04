@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="579.0" prefWidth="843.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="View.Gui">
+  <children>
+    <AnchorPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <VBox layoutX="0.0" layoutY="0.0" prefHeight="579.0" prefWidth="300.0">
+          <children>
+            <ListView fx:id="lis" onMouseClicked="#setController" prefHeight="200.0" prefWidth="200.0" />
+            <Label text="Programs" />
+            <TableView fx:id="ProcedureTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="150.0" text="ProcName" fx:id="ProcName" />
+                <TableColumn prefWidth="150.0" text="ProcBody" fx:id="ProcBody" />
+              </columns>
+            </TableView>
+            <Label text="ProcedureTable" />
+          </children>
+        </VBox>
+        <GridPane layoutX="300.0" layoutY="0.0" prefHeight="579.0" prefWidth="543.0">
+          <children>
+            <Label text="Steps" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="TOP">
+              <GridPane.margin>
+                <Insets left="10.0" top="10.0" fx:id="x2" />
+              </GridPane.margin>
+            </Label>
+            <Button fx:id="oneStepButton" mnemonicParsing="false" onAction="#oneStep" text="oneStep" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="TOP">
+              <GridPane.margin>
+                <Insets top="10.0" />
+              </GridPane.margin>
+            </Button>
+            <Button fx:id="allStepButton" mnemonicParsing="false" text="allStep" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="TOP">
+              <GridPane.margin>
+                <Insets left="150.0" top="10.0" />
+              </GridPane.margin>
+            </Button>
+            <TextField fx:id="nrOfPrgStField" prefWidth="168.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+              <GridPane.margin>
+                <Insets bottom="80.0" left="100.0" />
+              </GridPane.margin>
+            </TextField>
+            <Label text="Nr of PrgStates" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+              <GridPane.margin>
+                <Insets bottom="80.0" left="10.0" />
+              </GridPane.margin>
+            </Label>
+            <TableView fx:id="heapTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <columns>
+                <TableColumn prefWidth="135.0" sortable="false" text="Address" fx:id="addCol" />
+                <TableColumn prefWidth="135.0" sortable="false" text="Value" fx:id="heapValCol" />
+              </columns>
+              <GridPane.margin>
+                <Insets top="30.0" fx:id="x1" />
+              </GridPane.margin>
+            </TableView>
+            <Label text="Heap" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="TOP">
+              <GridPane.margin>
+                <Insets left="10.0" top="10.0" fx:id="x2" />
+              </GridPane.margin>
+            </Label>
+            <ListView fx:id="outList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+              <GridPane.margin>
+                <Insets top="30.0" fx:id="x1" />
+              </GridPane.margin>
+            </ListView>
+            <Label text="Out" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.valignment="TOP">
+              <GridPane.margin>
+                <Insets left="10.0" top="10.0" fx:id="x2" />
+              </GridPane.margin>
+            </Label>
+            <TableView fx:id="fileTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.margin="$x1" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn prefWidth="135.0" text="Identifier" fx:id="identCol" />
+                <TableColumn prefWidth="135.0" text="File name" fx:id="fNameCol" />
+              </columns>
+            </TableView>
+            <Label text="FileTable" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <ListView fx:id="prgStateIds" onMouseClicked="#selectedProgram" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <GridPane.margin>
+                <Insets top="100.0" />
+              </GridPane.margin>
+            </ListView>
+            <Label text="PrgState IDs" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <GridPane.margin>
+                <Insets bottom="20.0" left="10.0" />
+              </GridPane.margin>
+            </Label>
+            <TableView fx:id="symTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="2">
+              <columns>
+                <TableColumn prefWidth="135.0" text="VarName" fx:id="vNameCol" />
+                <TableColumn prefWidth="135.0" text="Value" fx:id="symValCol" />
+              </columns>
+            </TableView>
+            <Label text="SymTable" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <ListView fx:id="exeStack" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.margin="$x1" GridPane.rowIndex="2" />
+            <Label text="ExeStack" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </children>
+    </AnchorPane>
+  </children>
+</AnchorPane>
